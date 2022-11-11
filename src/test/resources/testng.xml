@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="BBC Tests" parallel="false">
+    <test name="[TC1] -	Verify the top navigation links.">
+        <classes>
+            <class name="bbc.tests.BBCTests">
+                <methods>
+                    <include name="checkTopBarNavigation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="[TC2] -	Navigate to the “News” section and verify url is correct.">
+        <classes>
+            <class name="bbc.tests.BBCTests">
+                <methods>
+                    <include name="checkNewsURL"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="[TC3] -	Verify the day and date displayed on the commonPage is correct">
+        <classes>
+            <class name="bbc.tests.BBCTests">
+                <methods>
+                    <include name="dateVerify"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="[TC4] -	In the top navigation, perform a search for “Houghton Mifflin Harcourt” and verify the search results.">
+        <classes>
+            <class name="bbc.tests.BBCTests">
+                <methods>
+                    <include name="searchVerify"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
