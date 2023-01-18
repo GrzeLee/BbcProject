@@ -72,10 +72,12 @@ public class CommonPage extends BaseBBCTest {
     }
 
     public void navigateToNews() {
+        helper.waitForElementToBeDisplayed(navigationButtonToNews,5);
         navigationButtonToNews.click();
     }
 
     public void checkNavigationLinks() {
+        helper.waitForElementToBeDisplayed(navigationButtonToHome,5);
         Assert.assertEquals(navigationButtonToHome.getAttribute("href"), "https://www.bbc.com/", "Wrong navigation link in home button");
         Assert.assertEquals(navigationButtonToNews.getAttribute("href"), "https://www.bbc.com/news", "Wrong navigation link in news button");
         Assert.assertEquals(navigationButtonToSport.getAttribute("href"), "https://www.bbc.com/sport", "Wrong navigation link in sport button");

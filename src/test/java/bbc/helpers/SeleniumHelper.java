@@ -1,5 +1,6 @@
 package bbc.helpers;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,5 +23,13 @@ public class SeleniumHelper {
                 .pollingEvery(Duration.ofMillis(100))
                 .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitForElementToBeDisplayed(By element, int duration) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver);
+        wait.withTimeout(Duration.ofSeconds(duration))
+                .pollingEvery(Duration.ofMillis(100))
+                .ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(element)));
     }
 }

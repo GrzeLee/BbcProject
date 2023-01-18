@@ -21,6 +21,7 @@ public class HomePage extends BaseBBCTest {
 
 
     public void checkDate() {
+        helper.waitForElementToBeDisplayed(By.xpath("//section[@class= 'module module--header']/h2"),5);
         String textFromHeader = driver.findElement(By.xpath("//section[@class= 'module module--header']/h2")).getText();
         String[] lines = textFromHeader.split("\\n");
         String dateFromPage = lines[1];

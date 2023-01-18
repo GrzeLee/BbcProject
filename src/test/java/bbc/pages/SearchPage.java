@@ -2,10 +2,7 @@ package bbc.pages;
 
 import bbc.helpers.SeleniumHelper;
 import bbc.tests.BaseBBCTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -33,10 +30,12 @@ public class SearchPage extends BaseBBCTest {
     public void setSearchInput(String searchValue) {
         helper.waitForElementToBeDisplayed(searchInput, 5);
         searchInput.sendKeys(searchValue);
+        helper.waitForElementToBeDisplayed(submitSearchButton,5);
         submitSearchButton.click();
     }
 
     public void verifySearchResult() {
+        helper.waitForElementToBeDisplayed(By.xpath("//ol/li"),5);
         List<WebElement> pageSelectButtonsList = driver.findElements(By.xpath("//ol/li"));
         int pageSelectButtonsListCount = pageSelectButtonsList.size();
         // The test passes if the program finds no results. Test doesn't include external database.
@@ -55,8 +54,8 @@ public class SearchPage extends BaseBBCTest {
                 articlesOnPage.get(i).click();
                 try {
                     //checks if the page contains expected words
-                    driver.findElement(By.xpath("//*[contains(text(), 'Houghton') or contains(text(), 'Mifflin') or contains(text(), 'Harcourt')]"));
-                } catch (NoSuchElementException exception) {
+                    helper.waitForElementToBeDisplayed(By.xpath("//*[contains(text(), 'Houghton') or contains(text(), 'Mifflin') or contains(text(), 'Harcourt')]"),5);
+                } catch (TimeoutException exception) {
                     System.out.println(exception.getMessage());
                     Assert.fail("Article does not contain the searched content");
                 }
