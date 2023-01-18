@@ -26,6 +26,7 @@ The basic test report can be found in target/surefire-reports/index.html
 ## Test Cases 
 
 [TC1] -	Verify the top navigation links.
+
 ClassName = checkTopBarNavigation
 
 Test Steps:
@@ -34,6 +35,7 @@ Test Steps:
 3. check all navigation buttons "href" attribute.
 
 [TC2] -	Navigate to the “News” section and verify url is correct.
+
 ClassName = checkNewsURL
 
 Test Steps: 
@@ -42,7 +44,8 @@ Test Steps:
 3. navigate to news page
 4. check URL
 
-[TC3] -	Verify the day and date displayed on the page is correct
+[TC3] -	Verify the day and date displayed on the page is correct.
+
 ClassName = dateVerify
 
 Test Steps:
@@ -51,6 +54,7 @@ Test Steps:
 3. check date from home page
 
 [TC4] -	In the top navigation, perform a search for “Houghton Mifflin Harcourt” and verify the search results.
+
 ClassName = searchVerify
 
 Test Steps:
